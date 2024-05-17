@@ -1,0 +1,47 @@
+@use '../../../../variables.scss' as *;
+
+@include messages-content();
+
+.input-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.note {
+  @include card-shadow();
+
+  background-color: var(--base-bg);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 0.5px solid var(--border-color);
+
+  .note-title {
+    @include message-title();
+  }
+
+  .note-text {
+    @include message-text();
+  }
+}
+.information-table {
+  padding: 20px; // Pour ajouter de l'espace autour du tableau
+
+  table {
+    width: 100%; // Utiliser toute la largeur
+    border-collapse: collapse; // Éviter les espaces entre les cellules
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd; // Bordures pour les cellules
+    text-align: left; // Aligner le texte à gauche
+    padding: 10px; // Espacement entre le contenu et les bordures
+  }
+
+  th {
+    background-color: #f2f2f2; // Couleur de fond pour les entêtes
+    font-weight: bold; // Police en gras pour les entêtes
+  }
+}

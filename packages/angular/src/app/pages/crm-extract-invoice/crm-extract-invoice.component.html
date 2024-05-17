@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Facture Upload & Formulaire</title>
+    <style>
+      /* CSS reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Global styles */
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin-bottom: 10px;
+      }
+
+      input,
+      textarea,
+      select,
+      button {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      /* Container */
+      .container {
+        display: flex;
+        flex-direction: row;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      /* Left box: File upload and image content */
+      .box {
+        flex: 1;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 20px;
+      }
+
+      .box h3 {
+        margin-top: 0;
+      }
+
+      input[type="file"] {
+        margin-bottom: 10px;
+      }
+
+    .file-content-container {
+        margin-top: 20px
+      }
+
+      .image-container {
+        text-align: center;
+      }
+
+      .file-image {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      /* Right box: Form */
+      .form-container {
+        flex: 2;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .form-container h1 {
+        margin-top: 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+
+
+  <body>
+
+
+
+
+<div class="container" app-crm-extract-invoice>
+  <div class="box">
+    <h3>Upload Facture Image</h3>
+    <input type="file" accept="image/*,application/pdf,text/plain" (change)="onFileSelected($event)">
+
+    <div class="file-content-container">
+          <!-- Display the uploaded content -->
+          <div class="image-container">
+            <img [src]="fileContent" alt="Uploaded Facture" *ngIf="fileType === 'image'">
+            <object [data]="fileContent" type="application/pdf" width="100%" height="600px" *ngIf="fileType === 'pdf'"></object>
+            <pre *ngIf="fileType === 'text'">{{ fileContent }}</pre>
+          </div>
+    </div>
+  </div>
+
+      <div class="form-container">
+        <h1>Formulaire de facture</h1>
+        <form action="#" method="post">
+
+          <div class="row">
+            <div class="col-25">
+              <label for="num_facture">Facture N°</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="num_facture" name="num_facture" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="code_client">Code Client</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="code_client" name="code_client" required>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-25">
+              <label for="code_fiscal">Code Fiscal</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="code_fiscal" name="code_fiscal" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="pays">Pays</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="pays" name="pays" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="ville">Ville</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="ville" name="ville" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="date_facture">Date du facture</label>
+            </div>
+            <div class="col-75">
+              <input type="date" id="date_facture" name="date_facture" required>
+            </div>
+          </div>
+
+          
+
+
+
+          <div class="sidebar">
+            <h2>Navire</h2>
+            
+            <div class="row">
+              <div class="col-25">
+                <label for="nom_navire">Nom Navire</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="nom_navire" name="nom_navire" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-25">
+                <label for="provenance">Provenance</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="provenance" name="provenance" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-25">
+                <label for="destination">Destination</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="destination" name="destination" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-25">
+                <label for="date_navire">Date de départ</label>
+              </div>
+              <div class="col-75">
+                <input type="date" id="date_navire" name="date_navire" required>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="sidebar">
+            <h2>Dossier</h2>
+
+            <div class="row">
+              <div class="col-25">
+                <label for="dossier_num">Numéro du dossier</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="dossier_num" name="dossier_num" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-25">
+                <label for="b_l_numero">B/L Numéro</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="b_l_numero" name="b_l_numero" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-25">
+                <label for="marque_code">Marque</label>
+              </div>
+              <div class="col-75">
+                <input type="text" id="marque_code" name="marque_code" required>
+              </div>
+            </div>
+          </div>
+      
+          
+
+
+
+
+          <div class="sidebar">
+        <h2>Marchandises</h2>
+        <table id="marchandise-table">
+              
+          <thead>
+            <tr>
+              <th>Code du Marque</th>
+              <th>designation</th>
+              <th>Col/Mtg</th>
+              <th>Poids</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr *ngFor="let item of items; let i = index">
+              <td><input type="text" [formControlName]="'marque_code_'+i" required></td>
+              <td><input type="text" [formControlName]="'designation_'+i" required></td>
+              <td><input type="text" [formControlName]="'col_mtg_'+i" required></td>
+              <td><input type="text" [formControlName]="'poids_'+i" required></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" (click)="addRow()">Ajouter marchandise</button>
+      </div>
+
+
+      <div class="sidebarP">
+        <h2>Prestations</h2>
+        <table id="prestation-table">
+              
+          <thead>
+            <tr>
+              <th>Num</th>
+              <th>Rubriques</th>
+              <th>Base</th>
+              <th>Taux</th>
+              <th>Montant</th>
+              <th>A/D</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr *ngFor="let item of items; let i = index">
+              <td><input type="text" [formControlName]="'num_'+i" required></td>
+              <td><input type="text" [formControlName]="'rubriques_'+i" required></td>
+              <td><input type="text" [formControlName]="'base_'+i" required></td>
+              <td><input type="text" [formControlName]="'taux_'+i" required></td>
+              <td><input type="text" [formControlName]="'montants_'+i" required></td>
+              <td><input type="text" [formControlName]="'A/D_'+i" required></td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" (click)="addRow()"> Ajouter Prestation</button>
+      </div>
+
+    </form>
+
+
+
+
+      <input type="submit" value="Save">
+  </div>
+</div>
+  </body>
+</html>

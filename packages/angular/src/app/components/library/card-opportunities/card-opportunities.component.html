@@ -1,0 +1,46 @@
+<div id="card-opportunies">
+  <ng-container *ngIf="!isLoading">
+    <!-- Ajouter un bouton au-dessus du tableau -->
+
+    <!-- Tableau avec deux colonnes et deux lignes -->
+    <div class="opportunities-table">
+      <table>
+        <thead>
+          <tr>
+            <th> </th>
+            <th>Taux en EUR</th>
+            <th>Taux en Millime</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Avance</td>
+            <td>1000</td>
+            <!-- Avance en EUR -->
+            <td>20000</td>
+            <!-- Avance en Millime -->
+          </tr>
+          <tr>
+            <td>Destination</td>
+            <td>500</td>
+            <!-- Destination en EUR -->
+            <td>10000</td>
+            <!-- Destination en Millime -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="activity-date" style="margin: 20px">
+      <strong>Arreter la presente facture a la somme de :</strong><br />
+      <span class="facture-value">bla bla bla bla </span>
+    </div>
+  </ng-container>
+
+  <dx-load-panel
+    [visible]="isLoading"
+    [showPane]="false"
+    container="#card-opportunies"
+    [position]="{ of: '#card-opportunies' }"
+  ></dx-load-panel>
+</div>

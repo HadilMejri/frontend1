@@ -1,0 +1,62 @@
+<div
+  id="activities-list"
+  [ngClass]="activities ? 'load' : null"
+  class="activities-container"
+>
+  <!-- Détails de l'activité -->
+  <div class="activity" style="margin-top: 20px">
+    <!-- Numéro de Facture -->
+    <div class="facture-number" style="margin: 20px">
+      <strong classe="x">Numéro de Facture:</strong>
+      <span class="facture-value">12331212</span>
+    </div>
+
+    <!-- Date de Facture -->
+    <div class="facture-date" style="margin: 20px">
+      <strong>Date de Facture:</strong>
+      <span class="facture-value">22/22/2022</span>
+    </div>
+
+    <!-- Code Client -->
+    <div class="facture-date" style="margin: 20px">
+      <strong style="margin-top: 10px">Code Client:</strong>
+      <span class="facture-value">12131</span>
+    </div>
+
+    <!-- Nom de la Facture -->
+    <div class="facture-name" style="margin: 20px">
+      <strong style="margin-top: 10px">Nom de la Facture:</strong>
+      <span class="facture-value">NomFactureExemple</span>
+    </div>
+
+    <!-- Code Fiscale -->
+    <div class="code-fiscale" style="margin: 20px">
+      <strong style="margin-top: 10px">Code Fiscale:</strong>
+      <span class="facture-value">12345FISC</span>
+    </div>
+
+    <!-- Ville -->
+    <div class="city" style="margin: 20px">
+      <strong style="margin-top: 20px">Ville:</strong>
+      <span class="facture-value">Paris</span>
+    </div>
+
+    <!-- Date -->
+    <div class="activity-date" style="margin: 20px">
+      <strong style="margin-top: 20px">Date:</strong>
+      <span class="facture-value">22/22/2022</span>
+    </div>
+
+    <!-- Menu ou actions pour cet élément -->
+    <!-- <card-menu [items]="activityMenuItems"></card-menu> -->
+  </div>
+
+  <!-- Panneau de chargement, si nécessaire -->
+  <dx-load-panel
+    container="#activities-list"
+    [position]="{ of: '#activities-list' }"
+    [visible]="isLoading"
+    [showPane]="true"
+    [shadingColor]="'rgba(0,0,0,0.4)'"
+  ></dx-load-panel>
+</div>

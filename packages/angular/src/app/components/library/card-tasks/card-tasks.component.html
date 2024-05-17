@@ -1,0 +1,81 @@
+<div id="card-tasks">
+  <ng-container *ngIf="!isLoading">
+    <!-- Bouton d'ajout -->
+    <!-- <dx-button
+      text="Add Task"
+      icon="add"
+      width="300"
+      height="115"
+      stylingMode="outlined"
+      type="default"
+      class="add-tile"
+    ></dx-button> -->
+
+    <!-- Tableau avec colonnes pour les tâches -->
+    <div class="tasks-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Numero</th>
+            <th>Rubriques</th>
+            <th>Base</th>
+            <th>Taux</th>
+            <th>Montant</th>
+            <th>A/D</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Cinq lignes avec données statiques -->
+          <tr>
+            <td>1</td>
+            <td>Rubrique 1</td>
+            <td>100</td>
+            <td>10%</td>
+            <td>1000</td>
+            <td>Avance</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Rubrique 2</td>
+            <td>200</td>
+            <td>5%</td>
+            <td>1000</td>
+            <td>Destination</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Rubrique 3</td>
+            <td>150</td>
+            <td>15%</td>
+            <td>2250</td>
+            <td>Avance</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Rubrique 4</td>
+            <td>250</td>
+            <td>8%</td>
+            <td>2000</td>
+            <td>Destination</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Rubrique 5</td>
+            <td>300</td>
+            <td>12%</td>
+            <td>3600</td>
+            <td>Avance</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-container>
+
+  <!-- Panneau de chargement -->
+  <dx-load-panel
+    [visible]="isLoading"
+    [showPane]="false"
+    container="#card-tasks"
+    [position]="{ of: '#card-tasks' }"
+  ></dx-load-panel>
+</div>

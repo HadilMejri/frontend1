@@ -1,0 +1,35 @@
+@use '../../../../variables.scss' as *;
+
+#card-tasks {
+  min-height: 300px;
+  padding: 20px 0 0;
+}
+
+dx-data-grid {
+  border-top: 1px solid var(--border-color);
+}
+
+.tasks-table {
+  padding: 20px;
+
+  table {
+    width: 100%; // Utiliser toute la largeur
+    border-collapse: collapse; // Pas d'espace entre les cellules
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd; // Bordures entre les cellules
+    text-align: center; // Centrer le texte
+    padding: 10px; // Ajouter de l'espace dans les cellules
+  }
+
+  th {
+    background-color: #f2f2f2; // Couleur de fond pour les entêtes
+    font-weight: bold; // Police en gras pour les entêtes
+  }
+
+  .add-tile {
+    margin-bottom: 20px; // Espace entre le bouton et le tableau
+  }
+}

@@ -1,0 +1,45 @@
+@use '../../../../variables.scss' as *;
+
+#card-opportunies {
+  min-height: 300px;
+  padding: 20px;
+}
+
+.opportunities-block {
+  padding: 10px 0;
+}
+
+.opportunities-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.opportunities {
+  padding: 16px;
+  border-radius: 4px;
+  background: var(--side-panel-background);
+  flex: 1 300px;
+  max-width: 300px;
+}
+
+.opportunities-table {
+  padding: 20px;
+
+  table {
+    width: 100%; // Pour que le tableau utilise toute la largeur
+    border-collapse: collapse; // Pour éviter les espaces entre les cellules
+    margin-top: 20px; // Pour ajouter de l'espace entre le bouton et le tableau
+  }
+
+  th,
+  td {
+    border: 1px solid #ddd; // Pour ajouter des bordures entre les cellules
+    text-align: center; // Pour centrer le texte dans les cellules
+    padding: 10px; // Pour ajouter de l'espace dans les cellules
+  }
+
+  th {
+    background-color: #f2f2f2; // Pour donner une couleur de fond aux entêtes
+  }
+}
