@@ -62,7 +62,9 @@
       }
 
     .file-content-container {
-        margin-top: 20px
+      margin-top: 20px;
+    height: 520px;
+    overflow: auto;
       }
 
       .image-container {
@@ -131,13 +133,29 @@
 
     <div class="file-content-container">
           <!-- Display the uploaded content -->
+
+          <embed [src]="fileContent" type="application/pdf" width="100%" height="400px" *ngIf="fileType === 'pdf'">
+
           <div class="image-container">
-            <img [src]="fileContent" alt="Uploaded Facture" *ngIf="fileType === 'image'">
+            <img [src]="fileContent" alt="Uploaded Facture" *ngIf="fileType === 'image'" class="file-image" >
             <object [data]="fileContent" type="application/pdf" width="100%" height="600px" *ngIf="fileType === 'pdf'"></object>
             <pre *ngIf="fileType === 'text'">{{ fileContent }}</pre>
           </div>
     </div>
+    <input type="button" value="Extract">
   </div>
+  
+
+
+
+
+
+
+
+
+
+
+
 
       <div class="form-container">
         <h1>Formulaire de facture</h1>
@@ -303,7 +321,7 @@
       </div>
 
 
-      <div class="sidebarP">
+      <div class="sidebar">
         <h2>Prestations</h2>
         <table id="prestation-table">
               
@@ -332,12 +350,58 @@
         <button type="button" (click)="addRow()"> Ajouter Prestation</button>
       </div>
 
+      <div class="sidebar1">
+        <div class="half">
+          <h2>Totaux en Euro</h2>
+      
+          <div class="row">
+            <div class="col-25">
+              <label for="avance_euro">Avance en Euro</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="avance_euro" name="avance_euro" required>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col-25">
+              <label for="destination_euro">Destination en Euro</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="destination_euro" name="destination_euro" required>
+            </div>
+          </div>
+        </div>
+      
+        <div class="half">
+          <h2>Totaux en Millime</h2>
+      
+          <div class="row">
+            <div class="col-25">
+              <label for="avance_millime">Avance en Millime</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="avance_millime" name="avance_millime" required>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col-25">
+              <label for="destination_millime">Destination en Millime</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="destination_millime" name="destination_millime" required>
+            </div>
+          </div>
+        </div>
+      </div>      
+
     </form>
 
 
 
 
-      <input type="submit" value="Save">
+    <button type="submit"> Save</button>
   </div>
 </div>
   </body>
