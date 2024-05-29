@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { AppComponent } from './app.component';
 import { SideNavOuterToolbarModule, SingleCardModule } from './layouts';
+import { FormsModule } from '@angular/forms';
 import jsPDF from 'jspdf';
 
 import {
@@ -59,6 +60,7 @@ import { Column } from 'jspdf-autotable';
     NgxExtendedPdfViewerModule,
     AppRoutingModule,
     DxDataGridModule,
+    FormsModule,
 
   ],
   providers: [AuthService, ScreenService, AppInfoService, ThemeService],

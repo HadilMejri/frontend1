@@ -142,7 +142,9 @@
             <pre *ngIf="fileType === 'text'">{{ fileContent }}</pre>
           </div>
     </div>
-    <input type="button" value="Extract">
+    <!-- <input type="button" value="Extract">  -->
+    <input type="button" id="extract-button" (click)="extractData()" value="Extract">
+
   </div>
   
 
@@ -309,7 +311,7 @@
           </thead>
           
           <tbody>
-            <tr *ngFor="let item of items; let i = index">
+            <tr *ngFor="let item of marchandises; let i = index">
               <td><input type="text" [formControlName]="'marque_code_'+i" required></td>
               <td><input type="text" [formControlName]="'designation_'+i" required></td>
               <td><input type="text" [formControlName]="'col_mtg_'+i" required></td>
@@ -317,7 +319,7 @@
             </tr>
           </tbody>
         </table>
-        <button type="button" (click)="addRow()">Ajouter marchandise</button>
+        <button type="button" (click)="addRowToMarchandises()">Ajouter marchandise</button>
       </div>
 
 
@@ -337,7 +339,7 @@
           </thead>
           
           <tbody>
-            <tr *ngFor="let item of items; let i = index">
+            <tr *ngFor="let item of prestations; let i = index">
               <td><input type="text" [formControlName]="'num_'+i" required></td>
               <td><input type="text" [formControlName]="'rubriques_'+i" required></td>
               <td><input type="text" [formControlName]="'base_'+i" required></td>
@@ -347,7 +349,7 @@
             </tr>
           </tbody>
         </table>
-        <button type="button" (click)="addRow()"> Ajouter Prestation</button>
+        <button type="button" (click)="addRowToPrestations()"> Ajouter Prestation</button>
       </div>
 
       <div class="sidebar1">
