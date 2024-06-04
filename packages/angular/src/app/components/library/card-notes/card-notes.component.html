@@ -1,36 +1,43 @@
-<div class="information-table">
-  <div class="activity-date" style="margin: 20px">
-    <strong>Code fiscal :</strong>
-    <span class="facture-value">0012021021</span>
+<dx-validation-group>
+  <div class="notes">
+    <div class="input-content">
+      <dx-text-area
+        label="New Note"
+        stylingMode="filled"
+        [(value)]="nodeText"
+      >
+        <dx-validator>
+          <dxi-validation-rule type="required"></dxi-validation-rule>
+        </dx-validator>
+      </dx-text-area>
+      <dx-toolbar>
+        <dxi-item
+          location="after"
+          widget="dxButton"
+          [options]="{
+            text: 'Add',
+            stylingMode: 'contained',
+            type: 'default',
+            onClick: add
+          }"
+        >
+        </dxi-item>
+      </dx-toolbar>
+    </div>
+    <div class="messages-content">
+      <dx-scroll-view>
+        <div class="message-list">
+          <div class="note dx-card" *ngFor="let note of items">
+            <div class="note-title">
+              <div>{{ note.date | date: 'MM/dd/y' }} - {{ note.manager }}</div>
+              <div>
+                <dx-button icon="overflow" stylingMode="text"></dx-button>
+              </div>
+            </div>
+            <div class="note-text">{{ note.text }}</div>
+          </div>
+        </div>
+      </dx-scroll-view>
+    </div>
   </div>
-  <table>
-    <tbody>
-      <!-- Première ligne : Navire et Du -->
-      <tr>
-        <th>Navire / Du</th>
-        <td>Value1</td>
-        <!-- Valeur du "Du" -->
-        <th>Du</th>
-        <td>Value2</td>
-      </tr>
-
-      <!-- Deuxième ligne : Provenance et Destination -->
-      <tr>
-        <th>Provenance</th>
-        <td>Value2</td>
-        <!-- Valeur du "Destination" -->
-        <th>Destination</th>
-        <td>Value3</td>
-      </tr>
-
-      <!-- Troisième ligne : B/L Numero et Dossier Numero -->
-      <tr>
-        <th>B/L Numero</th>
-        <td>Value3</td>
-        <!-- Valeur du "Dossier Numero" -->
-        <th>Dossier Numero</th>
-        <td>Value3</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+</dx-validation-group>

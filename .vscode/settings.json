@@ -2,8 +2,12 @@
     "csharp.format.enable": true,
     "editor.tabSize": 2,
     "cSpell.words": [
+        "devexpress",
+        "devkit",
         "Envoyer",
+        "exceljs",
         "Formulaire",
+        "gantt",
         "Matricule",
         "Produit",
         "quantite",

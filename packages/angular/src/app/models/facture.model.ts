@@ -9,6 +9,10 @@ export class Facture {
   date: Date;
   ville: string;
   pays: string;
+  avanceEuro: string;
+  destinationEuro: string;
+  avanceMillime: string;
+  destinationMillime: string;
   codeFiscal: string;
   codeClient: number;
   dossierNum: string;

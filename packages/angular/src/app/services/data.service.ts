@@ -17,6 +17,7 @@ const API_URL = 'https://js.devexpress.com/Demos/RwaService/api';
 @Injectable()
 export class DataService {
   constructor(private http: HttpClient) {}
+  
 
   public getContacts = () =>
     this.http.get<Contact[]>(`${API_URL}/Users/Contacts`);

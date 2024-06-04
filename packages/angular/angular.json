@@ -62,6 +62,7 @@
             "styles": [
               "src/styles.scss",
               "devexpress-gantt/dist/dx-gantt.css",
+              
               {
                 "input": "devextreme/scss/bundles/dx.fluent.blue.light.scss",
                 "bundleName": "theme-light"
@@ -126,7 +127,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular:build:production"
+              "browserTarget": "angular:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
               "browserTarget": "angular:build:development"

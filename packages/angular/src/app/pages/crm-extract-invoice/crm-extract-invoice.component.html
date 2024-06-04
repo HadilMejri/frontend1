@@ -126,26 +126,27 @@
 
 
 
-<div class="container" app-crm-extract-invoice>
-  <div class="box">
-    <h3>Upload Facture Image</h3>
-    <input type="file" accept="image/*,application/pdf,text/plain" (change)="onFileSelected($event)">
+    <div class="container" app-crm-extract-invoice>
+      <div class="box">
+        <h3>Upload Invoice</h3>
+        <input type="file" accept="image/*,application/pdf,text/plain" (change)="onFileSelected($event)">
+    
 
-    <div class="file-content-container">
+        <div class="file-content-container">
           <!-- Display the uploaded content -->
 
           <embed [src]="fileContent" type="application/pdf" width="100%" height="400px" *ngIf="fileType === 'pdf'">
 
-          <div class="image-container">
-            <img [src]="fileContent" alt="Uploaded Facture" *ngIf="fileType === 'image'" class="file-image" >
-            <object [data]="fileContent" type="application/pdf" width="100%" height="600px" *ngIf="fileType === 'pdf'"></object>
-            <pre *ngIf="fileType === 'text'">{{ fileContent }}</pre>
+            <div class="image-container">
+              <img [src]="fileContent" alt="Uploaded Facture" *ngIf="fileType === 'image'" class="file-image">
+              <object [data]="fileContent" type="application/pdf" width="100%" height="600px" *ngIf="fileType === 'pdf'"></object>
+              <pre *ngIf="fileType === 'text'">{{ fileContent }}</pre>
+            </div>
           </div>
-    </div>
-    <!-- <input type="button" value="Extract">  -->
-    <input type="button" id="extract-button" (click)="extractData()" value="Extract">
-
-  </div>
+      
+          <input type="button" id="extract-button" (click)="extractData(filename)" value="Extract">
+      
+        </div>
   
 
 
@@ -159,34 +160,34 @@
 
 
 
-      <div class="form-container">
-        <h1>Formulaire de facture</h1>
-        <form action="#" method="post">
+        <div class="form-container">
+          <h1>Formulaire de facture</h1>
+          <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
 
           <div class="row">
             <div class="col-25">
-              <label for="num_facture">Facture N°</label>
+              <label for="numFacture">Facture N°</label>
             </div>
             <div class="col-75">
-              <input type="text" id="num_facture" name="num_facture" required>
+              <input type="text" id="numFacture" name="numFacture" required>
             </div>
           </div>
 
           <div class="row">
             <div class="col-25">
-              <label for="code_client">Code Client</label>
+              <label for="codeClient">Code Client</label>
             </div>
             <div class="col-75">
-              <input type="text" id="code_client" name="code_client" required>
+              <input type="text" id="codeClient" name="codeClient" required>
             </div>
           </div>
           
           <div class="row">
             <div class="col-25">
-              <label for="code_fiscal">Code Fiscal</label>
+              <label for="codeFiscal">Code Fiscal</label>
             </div>
             <div class="col-75">
-              <input type="text" id="code_fiscal" name="code_fiscal" required>
+              <input type="text" id="codeFiscal" name="codeFiscal" required>
             </div>
           </div>
 
@@ -210,10 +211,10 @@
 
           <div class="row">
             <div class="col-25">
-              <label for="date_facture">Date du facture</label>
+              <label for="date">Date du facture</label>
             </div>
             <div class="col-75">
-              <input type="date" id="date_facture" name="date_facture" required>
+              <input type="date" id="date" name="date" required>
             </div>
           </div>
 
@@ -226,10 +227,10 @@
             
             <div class="row">
               <div class="col-25">
-                <label for="nom_navire">Nom Navire</label>
+                <label for="nomNavire">Nom Navire</label>
               </div>
               <div class="col-75">
-                <input type="text" id="nom_navire" name="nom_navire" required>
+                <input type="text" id="nomNavire" name="nomNavire" required>
               </div>
             </div>
 
@@ -253,10 +254,10 @@
 
             <div class="row">
               <div class="col-25">
-                <label for="date_navire">Date de départ</label>
+                <label for="dateDepart">Date de départ</label>
               </div>
               <div class="col-75">
-                <input type="date" id="date_navire" name="date_navire" required>
+                <input type="date" id="dateDepart" name="dateDepart" required>
               </div>
             </div>
           </div>
@@ -267,27 +268,27 @@
 
             <div class="row">
               <div class="col-25">
-                <label for="dossier_num">Numéro du dossier</label>
+                <label for="dossierNum">Numéro du dossier</label>
               </div>
               <div class="col-75">
-                <input type="text" id="dossier_num" name="dossier_num" required>
+                <input type="text" id="dossierNum" name="dossierNum" required>
               </div>
             </div>
 
             <div class="row">
               <div class="col-25">
-                <label for="b_l_numero">B/L Numéro</label>
+                <label for="BLNumero">B/L Numéro</label>
               </div>
               <div class="col-75">
-                <input type="text" id="b_l_numero" name="b_l_numero" required>
+                <input type="text" id="BLNumero" name="BLNumero" required>
               </div>
             </div>
             <div class="row">
               <div class="col-25">
-                <label for="marque_code">Marque</label>
+                <label for="marqueCode">Marque</label>
               </div>
               <div class="col-75">
-                <input type="text" id="marque_code" name="marque_code" required>
+                <input type="text" id="marqueCode" name="marqueCode" required>
               </div>
             </div>
           </div>
@@ -298,29 +299,30 @@
 
 
           <div class="sidebar">
-        <h2>Marchandises</h2>
-        <table id="marchandise-table">
-              
-          <thead>
-            <tr>
-              <th>Code du Marque</th>
-              <th>designation</th>
-              <th>Col/Mtg</th>
-              <th>Poids</th>
-            </tr>
-          </thead>
+            <h2>Marchandises</h2>
+            <table id="marchandise-table">
           
-          <tbody>
-            <tr *ngFor="let item of marchandises; let i = index">
-              <td><input type="text" [formControlName]="'marque_code_'+i" required></td>
-              <td><input type="text" [formControlName]="'designation_'+i" required></td>
-              <td><input type="text" [formControlName]="'col_mtg_'+i" required></td>
-              <td><input type="text" [formControlName]="'poids_'+i" required></td>
-            </tr>
-          </tbody>
-        </table>
-        <button type="button" (click)="addRowToMarchandises()">Ajouter marchandise</button>
-      </div>
+              <thead>
+                <tr>
+                  <th>Code du Marque</th>
+                  <th>designation</th>
+                  <th>Col/Mtg</th>
+                  <th>Poids</th>
+                </tr>
+              </thead>
+          
+              <tbody formArrayName="marchandises">
+                <tr *ngFor="let item of myForm.get('marchandises')['controls']; let i = index">
+
+                  <td><input type="text" formControlName="codeMarque" required></td>
+                  <td><input type="text" formControlName="designation" required></td>
+                  <td><input type="text" formControlName="colMtg" required></td>
+                  <td><input type="text" formControlName="poids" required></td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="button" (click)="addRowToMarchandises()">Ajouter marchandise</button>
+          </div>
 
 
       <div class="sidebar">
@@ -338,18 +340,18 @@
             </tr>
           </thead>
           
-          <tbody>
-            <tr *ngFor="let item of prestations; let i = index">
-              <td><input type="text" [formControlName]="'num_'+i" required></td>
-              <td><input type="text" [formControlName]="'rubriques_'+i" required></td>
-              <td><input type="text" [formControlName]="'base_'+i" required></td>
-              <td><input type="text" [formControlName]="'taux_'+i" required></td>
-              <td><input type="text" [formControlName]="'montants_'+i" required></td>
-              <td><input type="text" [formControlName]="'A/D_'+i" required></td>
+          <tbody formArrayName="prestations">
+            <tr *ngFor="let item of myForm.get('prestations')['controls']; let i = index">
+              <td><input type="text" formControlName="num" required></td>
+              <td><input type="text" formControlName="rubrique" required></td>
+              <td><input type="text" formControlName="Base" required></td>
+              <td><input type="text" formControlName="taux" required></td>
+              <td><input type="text" formControlName="montant" required></td>
+              <td><input type="text" formControlName="typeRubrique" required></td>
             </tr>
           </tbody>
         </table>
-        <button type="button" (click)="addRowToPrestations()"> Ajouter Prestation</button>
+        <button type="button" (click)="addRowToPrestations()">Ajouter prestations</button>
       </div>
 
       <div class="sidebar1">
@@ -398,12 +400,13 @@
         </div>
       </div>      
 
+   
+
+
+
+
+      <button type="submit">Save</button>
     </form>
-
-
-
-
-    <button type="submit"> Save</button>
   </div>
 </div>
   </body>

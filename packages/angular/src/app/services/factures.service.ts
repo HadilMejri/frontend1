@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Facture } from '../models/facture.model';
 import { Observable } from 'rxjs';
@@ -23,8 +23,16 @@ export class FacturesService {
   }
 
   // Méthode pour récupérer les détails d'une facture
-  getFactureDetails(numeroFacture: number): Observable<FactureDetails> {
+  getFactureDetails(numeroFacture: number) {
+    console.log("Here into service facture details", );
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json'
+      })
+    };
     return this.http.get<FactureDetails>(`${this.apiUrl}/${numeroFacture}`);
+ 
   }
 
   // Méthode pour mettre à jour une facture
@@ -36,5 +44,4 @@ export class FacturesService {
   deleteFacture(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deletefac/${id}`);
   }
-
 }

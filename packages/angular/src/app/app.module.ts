@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { SideNavOuterToolbarModule, SingleCardModule } from './layouts';
 import { FormsModule } from '@angular/forms';
 import jsPDF from 'jspdf';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   AppFooterModule,
@@ -29,13 +30,12 @@ import { AnalyticsDashboardModule } from './pages/analytics-dashboard/analytics-
 import { AnalyticsSalesReportModule } from './pages/analytics-sales-report/analytics-sales-report.component';
 import { AnalyticsGeographyModule } from './pages/analytics-geography/analytics-geography.component';
 import { ThemeService } from './services';
-import { Column } from 'jspdf-autotable';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-   
   
   ],
   imports: [
@@ -61,6 +61,7 @@ import { Column } from 'jspdf-autotable';
     AppRoutingModule,
     DxDataGridModule,
     FormsModule,
+    HttpClientModule,
 
   ],
   providers: [AuthService, ScreenService, AppInfoService, ThemeService],

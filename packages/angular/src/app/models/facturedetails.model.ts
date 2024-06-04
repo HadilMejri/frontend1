@@ -6,10 +6,14 @@ export class FactureDetails {
   date: Date;
   ville: string;
   pays: string;
+  avanceEuro: string;
+  destinationEuro: string;
+  avanceMillime: string;
+  destinationMillime: string;
   codeFiscal: string;
   codeClient: number;
   nomNavire: string;
-  numPrestation: string;
+  num: string;
   rubrique: string;
   base: string;
   taux: string;
@@ -17,6 +21,7 @@ export class FactureDetails {
   typeRubrique: string;
   dossierNum: string;
   marqueCode: string;
+  BLNumero: number;
   designation: string;
   colMtg: string;
   poids: number;
